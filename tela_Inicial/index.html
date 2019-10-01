@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlayTobas&copy;</title>
+    <style>
+        hr.clear{
+            clear: both;
+        }
+
+        #logo{
+            float: left;
+            padding: 0 90px;
+        }
+
+        #login{
+            padding: 45px;
+            float: right;            
+        }
+
+        footer{
+            text-align: center;
+            position: relative;
+            top: 130px;
+        }
+
+        fieldset{
+            border-radius: 15px;
+        }
+
+        input {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="logo">
+        <h1>PlayTobas&copy; <br> ¯\_(ツ)_/¯</h1>
+    </div>
+    <div id="login">
+        <form action="inicio.php">
+            <label for="user">Usuário:
+                <input type="text" name="user" id="user">
+            </label>
+            <label for="password">Senha:
+                <input type="password" name="password" id="password">
+            </label>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+    <hr class="clear">
+    <div id="cadastro" style="width: 35%; margin: 0 auto; text-align: center;">
+        <fieldset>
+            <legend>Criar uma nova conta</legend>
+            <form action="cadastro">
+                <br>
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+                <input type="text" name="Sobrenome" id="Sobrenome" placeholder="Sobrenome"><br><br>
+                <input type="email" name="email" id="email" placeholder="E-mail" style="width: 84.2%;"><br><br>
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <input type="password" name="conf_senha" id="conf_senha" placeholder="Confirmar senha"><br><br>
+                <label for="date"> Data de nascimento
+                    <input type="date" name="data_nascimento" id="date">
+                </label><br><br>
+                Sexo
+                <label for="sexoM">
+                    <input type="radio" name="sexo" id="sexoM" value="masculino">Masculino
+                </label>
+                <label for="sexoF">
+                    <input type="radio" name="sexo" id="sexoF" value="feminino">Feminino
+                </label><br><br>
+                <input type="submit" value="Cadastre-se">
+            </form>
+        </fieldset>
+    </div>
+    <footer>
+        <h2>PlayTobas &copy;<br> Natan Silva ¯\_(ツ)_/¯ Alberto Matos</h2>        
+    </footer>
+</body>
+
+</html>

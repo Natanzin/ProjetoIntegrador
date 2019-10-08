@@ -7,33 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FavoriteSongs&copy;</title>
     <style>
-        hr.clear{
-            clear: both;
-        }
-
-        #logo{
-            float: left;
-            padding: 0 90px;
-        }
-
-        #login{
-            padding: 45px;
-            float: right;            
-        }
-
-        footer{
-            text-align: center;
-            position: relative;
-            top: 130px;
-        }
-
-        fieldset{
-            border-radius: 15px;
-        }
-
-        input {
-            text-align: center;
-        }
+        hr.clear{clear: both;}
+        #logo{float: left;padding: 0 90px;}
+        #login{padding: 45px;float: right;}
+        footer{text-align: center;position: relative;top: 130px;}
+        fieldset{border-radius: 15px;}
+        input {text-align: center;}
     </style>
 </head>
 
@@ -43,14 +22,14 @@
         <h1 style="text-align: center;">FavoriteSongs&copy; <br> ¯\_(ツ)_/¯</h1>
     </div>
     <div id="login">
-        <form action="inicio.php">
+        <form action="login.php" method="POST">
             <label for="user">Email:
                 <input type="text" name="user" id="user">
             </label>
             <label for="password">Senha:
                 <input type="password" name="password" id="password">
             </label>
-            <input type="submit" value="Entrar">
+            <input name="entrar" type="submit" value="Entrar">
         </form>
     </div>
     <hr class="clear">

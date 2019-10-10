@@ -23,28 +23,27 @@
             die;
         }else{
             //conexão com o banco de dados
-            $conexao = new PDO('mysql:host=localhost;dbname=projetointegrador;charset=utf8','root','');
+                include_once "../DataBase/conexao.php";
 
             //código SQL de inserção 
-            $sql = "insert into usuarios (nome_user, sobrenome_user, email_user, senha_user, nascimento_user, sexo_user) 
-                values ('$nome','$sobrenome','$email','$senha','$nascimento','$sexo')";
+                $sql = "insert into usuario (nome_user, sobrenome_user, email_user, senha_user, nascimento_user, sexo_user) 
+                    values ('$nome','$sobrenome','$email','$senha','$nascimento','$sexo')";
+            //execulta SQL no DB
+                $conexao->query($sql);
 
-            //Envia o registro ao banco de dados.
-            $conexao->query($sql);
-
-            //mensagem de cadastro
-            echo "<h1>Cadastro realizado com sucesso!</h1><br>";
-            if($sexo == "masculino"){
-                echo "Parabéns senhor $nome, ";
-            }else{
-                echo "Parabéns senhora $nome, ";
-            }
-            echo "você acaba de efetuar o seu cadastro no melhor site de playlists do mundo! <br>
-                Entre com seu email e senha para começar a desfrutar de nossa plataforma.<br><br>";
+            //mensagem de confirmação de cadastro cadastro
+                echo "<h1>Cadastro realizado com sucesso!</h1><br>";
+                if($sexo == "masculino"){
+                    echo "Parabéns senhor $nome, ";
+                }else{
+                    echo "Parabéns senhora $nome, ";
+                }
+                echo "você acaba de efetuar o seu cadastro no melhor site de playlists do mundo! <br>
+                    Entre com seu email e senha para começar a desfrutar de nossa plataforma.<br><br>";
             
         }
 
     ?>
-    <button><a href="index.php">Voltar</a></button>
+    <button><a href="../index.php">Voltar</a></button>
 </body>
 </html>

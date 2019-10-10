@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Tela de login</h1>
-    <?php 
-        $login = $_POST['user'];
-        $senha = md5($_POST['password']);
+<!--Verificação de login-->
+<?php 
+    $login = $_POST['email'];
+    $senha = md5($_POST['senha']);
 
-        $conexao = new PDO('mysql:host=localhost;dbname=projetointegrador;charset=utf8','root','');
-        $sql = "SELECT * FROM usuarios WHERE email_user = '$login' AND senha_user = '$senha'";               
-        $conexao->query($sql);
-        
-                
-    ?>
-</body>
-</html>
+    $sql = "select * from usuario where email_user='$login' and senha_user='$senha'";
+
+    include_once "../DataBase/conexao.php";
+    
+    $result = $conexao->query($sql);
+    $cargos = $result->fetchAll(2);
+
+    foreach($cargos as $cargo){
+        if ($login == $cargo['email_user'] && $senha == $cargo['senha_user']){
+            header("location: inicio.php"); 
+        }
+    }
+    echo"<script language='javascript' type='text/javascript'>
+    alert('Email e/ou senha incorretos');
+    window.location.href='../index.php';</script>";
+       
+?>

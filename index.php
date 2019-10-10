@@ -22,21 +22,21 @@
         <h1 style="text-align: center;">FavoriteSongs&copy; <br> ¯\_(ツ)_/¯</h1>
     </div>
     <div id="login">
-        <form action="login.php" method="POST">
-            <label for="user">Email:
-                <input type="text" name="user" id="user">
+        <form action="tela_inicial/login.php" method="POST">
+            <label for="email">Email:
+                <input type="text" name="email" id="email" required>
             </label>
-            <label for="password">Senha:
-                <input type="password" name="password" id="password">
+            <label for="senha">Senha:
+                <input type="password" name="senha" id="senha" required>
             </label>
-            <input name="entrar" type="submit" value="Entrar">
+            <input type="submit" value="Entrar">
         </form>
     </div>
     <hr class="clear">
     <div id="cadastro" style="width: 35%; margin: 0 auto; text-align: center;">
         <fieldset>
             <legend>Criar uma nova conta</legend>
-            <form action="cadastrar.php" method="POST">
+            <form action="tela_inicial/cadastrar.php" method="POST">
                 <br>
                 <input type="text" name="nome" id="nome" placeholder="Nome"required>
                 <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required><br><br>

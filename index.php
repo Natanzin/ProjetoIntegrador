@@ -1,3 +1,9 @@
+<?php 
+session_start(); 
+if(!empty($_GET['acao']) && $_GET['acao']=='deslogar'){
+    session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +33,7 @@
                 <input type="text" name="email" id="email" required>
             </label>
             <label for="senha">Senha:
-                <input type="password" name="senha" id="senha" required>
+                <input type="password" name="senha" id="senha" required autocomplete="off">
             </label>
             <input type="submit" value="Entrar">
         </form>
@@ -36,15 +42,15 @@
     <div id="cadastro" style="width: 35%; margin: 0 auto; text-align: center;">
         <fieldset>
             <legend>Criar uma nova conta</legend>
-            <form action="tela_inicial/cadastrar.php" method="POST">
+            <form action="tela_inicial/cadastrar.php" method="POST" >
                 <br>
-                <input type="text" name="nome" id="nome" placeholder="Nome"required>
-                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required><br><br>
-                <input type="email" name="email" id="email" placeholder="E-mail" style="width: 84.2%;" required><br><br>
-                <input type="password" name="senha" id="senha" placeholder="Senha" required>
-                <input type="password" name="conf_senha" id="conf_senha" placeholder="Confirmar senha"required><br><br>
+                <input type="text" name="nome" id="nome" placeholder="Nome" required autocomplete="off">
+                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required autocomplete="off"><br><br>
+                <input type="email" name="email" id="email" placeholder="E-mail" style="width: 84.2%;" required autocomplete="off"><br><br>
+                <input type="password" name="senha" id="senha" placeholder="Senha" required autocomplete="off">
+                <input type="password" name="conf_senha" id="conf_senha" placeholder="Confirmar senha"required autocomplete="off"><br><br>
                 <label for="date"> Data de nascimento
-                    <input type="date" name="data_nascimento" id="date" required>
+                    <input type="date" name="data_nascimento" id="date" required autocomplete="off">
                 </label><br><br>
                 Sexo
                 <label for="sexoM">

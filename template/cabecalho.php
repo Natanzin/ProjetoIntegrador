@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(empty($_SESSION['nome'])){
+        header('location: ../index.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,7 +34,7 @@
         </ul>
         <div class="form-inline mt-2 mt-md-0">
             <a href="../telas/user.php" class="btn btn-outline-info my-2 my-sm-0">Minha conta</a>&nbsp;
-            <a href="../index.php" class="btn btn-outline-danger my-2 my-sm-0">Fazer logoff</a>
+            <a href="../index.php?acao=deslogar" class="btn btn-outline-danger my-2 my-sm-0">Fazer logoff</a>
         </div>
       </div>
     </nav>

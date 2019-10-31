@@ -29,13 +29,39 @@
                 <a class="nav-link" href="../telas/albuns.php">Álbuns</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../telas/playlists.php">Artistas</a>
+                <a class="nav-link" href="../telas/artistas.php">Artistas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../telas/playlists.php">Playlists</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../telas/genero.php">Gênero</a>
             </li>
         </ul>
+
         <div class="form-inline mt-2 mt-md-0">
-            <a href="../telas/user.php" class="btn btn-outline-info my-2 my-sm-0">Minha conta</a>&nbsp;
-            <a href="../index.php?acao=deslogar" class="btn btn-outline-danger my-2 my-sm-0">Fazer logoff</a>
+            <div class="col">
+                <div class="text-right">
+                    <p style="color: silver; margin: 0;">Seja bem 
+                    <?php 
+                    if($_SESSION['sexo']=='masculino'){
+                        echo " vindo ";
+                    }elseif($_SESSION['sexo']=='feminino'){
+                        echo " vinda ";
+                    }
+                    echo $_SESSION['nome'];
+                    ?>
+                    </p>
+                </div>
+                <div class="row ">
+                    <a href="../telas/user.php" class="btn btn-outline-info my-2 my-sm-0">Minha conta</a>&nbsp;
+                    <a href="../index.php?acao=deslogar" class="btn btn-outline-danger my-2 my-sm-0">Fazer logoff</a>
+                </div>
+            </div>
         </div>
       </div>
     </nav>
-    <div class="container">
+    
+    <div class="container" style="margin-top: 80px;">
+
+ 

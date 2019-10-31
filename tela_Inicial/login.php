@@ -55,11 +55,12 @@
             include_once "../DataBase/conexao.php";
             
             $result = $conexao->query($sql);
-            $cargos = $result->fetchAll(2);
+            $usuarios = $result->fetchAll(2);
 
-            foreach($cargos as $cargo){
-                if ($login == $cargo['email_user'] && $senha == $cargo['senha_user']){
-                    $_SESSION['nome'] = $cargo['nome_user'];
+            foreach($usuarios as $usuario){
+                if ($login == $usuario['email_user'] && $senha == $usuario['senha_user']){
+                    $_SESSION['nome'] = $usuario['nome_user'];
+                    $_SESSION['sexo'] = $usuario['sexo_user'];
                     header("location: inicio.php"); 
                 }
             }

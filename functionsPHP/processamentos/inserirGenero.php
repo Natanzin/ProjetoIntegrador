@@ -12,12 +12,4 @@ include_once "../../DataBase/conexao.php";
 
 ?>
 
-<script>
-    $(function(){
-        alert('Gênero musical cadastrado com sucesso!');
-        location.href='../../telas/genero.php';
-    });
-</script>
-<div>
-<?php include_once "../../template/rodape.php"; ?>
      

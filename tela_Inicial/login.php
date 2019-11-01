@@ -61,6 +61,7 @@
                 if ($login == $usuario['email_user'] && $senha == $usuario['senha_user']){
                     $_SESSION['nome'] = $usuario['nome_user'];
                     $_SESSION['sexo'] = $usuario['sexo_user'];
+                    $_SESSION['id_user'] = $usuario['id_usuario'];
                     header("location: inicio.php"); 
                 }
             }

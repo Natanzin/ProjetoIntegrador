@@ -14,13 +14,13 @@
         </div>
         <div class="form-group">
             <label for="genero_msc">Gênero</label>
-            <select name="" id="genero_msc">
+            <select name="genero" id="genero_msc">
                 <option value="">Selecione</option>
                 
                 <?php 
-                    $sql = "select * from genero order by nome_genero asc";
+                    $sqlGenero = "select * from genero order by nome_genero asc";
 
-                    $generos = $conexao->query($sql);
+                    $generos = $conexao->query($sqlGenero);
                     $generos = $generos->fetchAll(PDO::FETCH_ASSOC);
 
                     //echo "<pre>"; print_r($resultado); die;
@@ -34,14 +34,38 @@
         </div>
         <div class="form-group">
             <label for="artista_msc">Artista</label>
-            <select name="" id="artista_msc">
-                <option value="">Artista</option>
+            <select name="artista" id="artista_msc">
+                <option value="">Selecione</option>
+
+                <?php 
+                    $sqlArtista = "select * from artista order by nome_artista asc";
+
+                    $artistas = $conexao->query($sqlArtista);
+                    $artistas = $artistas->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($artistas as $artista){
+                        echo "<option required value='{$artista['id_artista']}'>{$artista['nome_artista']}</option>";
+                    }
+                ?>
+
             </select>
         </div>
         <div class="form-group">
             <label for="album_msc">Álbum</label>
             <select name="" id="album_msc">
-                <option value="">Álbum</option>
+                <option value="">Selecione</option>
+
+                <?php 
+                    $sqlAlbum = "select * from album order by nome asc";
+
+                    $albuns = $conexao->query($sqlAlbum);
+                    $albuns = $albuns->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach($albuns as $album){
+                        echo "<option required value='{$album['id_album']}'>{$album['nome']}</option>";
+                    }
+                ?>
+
             </select>
         </div>
         <input class="btn btn-success" type="submit" value="Cadastrar">

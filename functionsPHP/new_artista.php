@@ -4,11 +4,11 @@
     <form action="">
         <div class="form-group">
             <label for="name_artista">Nome</label>
-            <input type="text" class="form-control" id="name_artista">
+            <input type="text" class="form-control" id="name_artista" autofocus required>
         </div>
         <div class="form-group">
             <label for="foto_artista">Foto</label>
-            <input type="file" class="form-control" id="foto_artista">
+            <input type="file" class="form-control" id="foto_artista" required>
         </div>
         <input class="btn btn-success" type="submit" value="Cadastrar">
     </form>

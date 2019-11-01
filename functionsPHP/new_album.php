@@ -5,11 +5,11 @@
     
         <div class="form-group">
             <label for="name_album">Nome do álbum</label>
-            <input type="text" class="form-control" id="name_album">
+            <input type="text" class="form-control" id="name_album" autofocus required>
         </div>
         <div class="form-group">
             <label for="ano_album">Ano de lançamento</label>
-            <input type="number" class="form-control" id="ano_album">
+            <input type="number" class="form-control" id="ano_album" required>
         </div>
         <div class="form-group">
             <label for="artista_msc">Artista</label>

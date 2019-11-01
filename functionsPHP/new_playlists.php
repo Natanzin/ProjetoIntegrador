@@ -5,7 +5,7 @@
     
         <div class="form-group">
             <label for="name_playlist">Nome da playlist</label>
-            <input type="text" class="form-control" id="name_msc">
+            <input type="text" class="form-control" id="name_msc" autofocus required>
         </div>
         <input class="btn btn-success" type="submit" value="Cadastrar">
         

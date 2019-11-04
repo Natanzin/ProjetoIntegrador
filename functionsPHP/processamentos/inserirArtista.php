@@ -16,6 +16,8 @@ include_once "../../DataBase/conexao.php";
 
     $conexao->query($sql);
 
+    header('location: ../../telas/artistas.php');
+
 ?>
 
      

@@ -10,4 +10,6 @@ $artista = $_POST['artista'];
 
     $conexao->query($sql);
 
+    header('location: ../../telas/albuns.php');
+
 ?>

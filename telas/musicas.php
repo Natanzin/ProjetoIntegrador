@@ -11,26 +11,30 @@
                 
                 //Procuas as músicas do usuário no DB
                 $sqlMusica = "select musica.id_musica, musica.nome_musica, musica.url_musica, musica.id_genero, musica.id_usuario, musica.id_album, artista.nome_artista
-                            from musica inner join artista on artista.id_artista = musica.id_artista where id_usuario = '{$_SESSION['id_user']}'";
+                            from musica inner join artista on artista.id_artista = musica.id_artista where id_usuario = '{$_SESSION['id_user']}' order by musica.nome_musica";
                 $musicas = $conexao->query($sqlMusica);
                 $musicas = $musicas->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach($musicas as $musica){
+                if($musicas){
+                    foreach($musicas as $musica){
 
-                    echo "
-                        <div class='col'>
-                            <div class='card border-primary' style='width:15rem; background: rgba(50, 153, 204, 0.3);'>
-                                <iframe class='card-img-top' src='https://www.youtube.com/embed{$musica['url_musica']}' frameborder='0' 
-                                allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-                                <div class='card-body'>
-                                    <p class='card-text text-center font-weight-bold'>{$musica['nome_musica']}</p>
-                                    <p class='card-text text-center'>{$musica['nome_artista']}</p>
-                                    <a href='../functionsPHP/new_Musica_playlist.php?idmsc={$musica['id_musica']}&&nomemsc={$musica['nome_musica']}' class='card-link font-weight-bold'>+ incluir na playlist</a>
+                        echo "
+                            <div class='col'>
+                                <div class='card border-primary' style='width:15rem; background: rgba(50, 153, 204, 0.3);'>
+                                    <iframe class='card-img-top' src='https://www.youtube.com/embed{$musica['url_musica']}' frameborder='0' 
+                                    allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                                    <div class='card-body'>
+                                        <p class='card-text text-center font-weight-bold'>{$musica['nome_musica']}</p>
+                                        <p class='card-text text-center'>{$musica['nome_artista']}</p>
+                                        <a href='../functionsPHP/new_Musica_playlist.php?idmsc={$musica['id_musica']}&&nomemsc={$musica['nome_musica']}' class='card-link font-weight-bold'>+ incluir na playlist</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ";
+                        ";
+                    }
                 }
+
+                
 
             ?>
         
@@ -45,7 +49,7 @@
             
                 //Procuas todas as músicas do DB
                 $sqlTdMusica = "select musica.id_musica, musica.nome_musica, musica.url_musica, musica.id_genero, musica.id_usuario, musica.id_album, artista.nome_artista
-                            from musica inner join artista on artista.id_artista = musica.id_artista";
+                            from musica inner join artista on artista.id_artista = musica.id_artista order by musica.nome_musica";
                 $td_musicas = $conexao->query($sqlTdMusica);
                 $td_musicas = $td_musicas->fetchAll(PDO::FETCH_ASSOC);
 
@@ -59,7 +63,7 @@
                                 <div class='card-body'>
                                     <p class='card-text text-center font-weight-bold'>{$tds_musica['nome_musica']}</p>
                                     <p class='card-text text-center'>{$tds_musica['nome_artista']}</p>
-                                    <a href='../functionsPHP/new_Musica_playlist.php?idmsc={$musica['id_musica']}&&nomemsc={$musica['nome_musica']}' class='card-link font-weight-bold'>+ incluir na playlist</a>
+                                    <a href='../functionsPHP/new_Musica_playlist.php?idmsc={$tds_musica['id_musica']}&&nomemsc={$tds_musica['nome_musica']}' class='card-link font-weight-bold'>+ incluir na playlist</a>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +72,7 @@
 
             ?>
          
-     </div>
+    </div>
     
 <?php include_once "../template/rodape.php"; ?>
 

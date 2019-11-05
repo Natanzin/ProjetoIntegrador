@@ -50,8 +50,9 @@
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr">
-            <th style="width: 2em;" scope="col" class="text-left">MUSICAS</th>
+            <th scope="col" class="text-left">MUSICAS</th>
             <th scope="col" class="text-center">NOME</th>            
+            <th scope="col" class="text-right">CRIADO POR:</th>            
             </tr>
         </thead>
         <tbody>
@@ -60,7 +61,7 @@
             
                 include_once "../DataBase/conexao.php";
 
-                $sql = "select * from playlist order by nome_playlist asc";
+                $sql = "select * from playlist p join usuario u on p.id_usuario = u.id_usuario order by nome_playlist asc";
 
                 $td_playlists = $conexao->query($sql);
                 $td_playlists = $td_playlists->fetchAll(PDO::FETCH_ASSOC);
@@ -73,6 +74,7 @@
                         
                         <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?id={$playlist['id_playlist']}'>escutar</a></td>
                         <td class='text-center'>{$playlist['nome_playlist']}</td>
+                        <td class='text-right font-weight-bold'>{$playlist['nome_user']}</td>
                     </tr>
                 ";
                 }

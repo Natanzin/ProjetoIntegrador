@@ -1,13 +1,11 @@
 <?php include_once "../template/cabecalho.php"; ?>
-
-    <!--Mostrar as músicas de cada gênero!-->
     <?php
 
-        $idGnr = $_GET['id'];
+        $idArt = $_GET['id'];
 
-        $sql = "select * from musica m join artista a on m.id_artista = a.id_artista join genero g on m.id_genero = g.id_genero where m.id_genero = '$idGnr' order by nome_musica asc";
-        
         include_once "../DataBase/conexao.php";
+
+        $sql = "select * from musica m join artista a on m.id_artista = a.id_artista where m.id_artista = '$idArt' order by nome_musica asc";
 
         $musicas = $conexao->query($sql);
         $musicas = $musicas->fetchAll(PDO::FETCH_ASSOC);
@@ -16,21 +14,21 @@
 
         if(!$musicas){
             echo "
-            <div class='col text-center'>
-            <br>
-                Nenhuma música adicionada ao gênero! <br>
-                <a href='genero.php' align='right' class='btn btn-primary'>Voltar</a>
-            <br><br>
-            </div>
+                <div class='col text-center'>
+                <br>
+                    Nenhuma música adicionada ao artista! <br>
+                    <a href='artistas.php' align='right' class='btn btn-primary'>Voltar</a>
+                <br><br>
+                </div>
             ";
         }else{
             echo "
-            <a href='genero.php' class='btn btn-primary'>Voltar</a><br>
-            <div class='col text-center border-bottom'>
-                <br><h2>{$musicas[0]['nome_genero']}</h2>
-            </div>
-            <br>
-            <div class='row' align='center'>
+                <a href='artistas.php' class='btn btn-primary'>Voltar</a><br>
+                <div class='col text-center border-bottom'>
+                    <br><h2>{$musicas[0]['nome_artista']}</h2>
+                </div>
+                <br>
+                <div class='row' align='center'>
             ";
 
             foreach($musicas as $musica){
@@ -53,5 +51,4 @@
         }
 
     ?>
-
 <?php include_once "../template/rodape.php"; ?>

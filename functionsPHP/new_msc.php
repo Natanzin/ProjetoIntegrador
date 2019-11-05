@@ -6,11 +6,11 @@
     
         <div class="form-group">
             <label for="name_msc">Nome da música</label>
-            <input type="text" name="nome_msc" class="form-control" id="name_msc" autofocus required>
+            <input type="text" name="nome_msc" class="form-control" id="name_msc" max="60" placeholder="máximo 60 caracteres" autofocus required>
         </div>
         <div class="form-group">
             <label for="url_msc">URL</label>
-            <input type="url" name="url_msc" class="form-control" id="url_msc" required>
+            <input type="url" name="url_msc" class="form-control" id="url_msc" placeholder="URL do youtube" required>
         </div>
         <div class="form-group">
             <label for="genero_msc">Gênero</label>

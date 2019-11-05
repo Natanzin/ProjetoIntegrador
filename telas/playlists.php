@@ -8,9 +8,9 @@
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
-            <th scope="col">NOME</th>
-            <th scope="col" style='text-align: right;'>MUSICAS</th>            
-            <th scope="col" style='text-align: right;'>AÇÕES</th>            
+            <th scope="col" class="text-left">MUSICAS</th>
+            <th scope="col" class="text-center">NOME</th>            
+            <th scope="col" class="text-right">AÇÃO</th>            
             </tr>
         </thead>
         <tbody>
@@ -31,9 +31,9 @@
                 foreach($playlists as $playlist){
                     echo "
                     <tr>
-                        <td scope='row'>{$playlist['nome_playlist']}</td>
-                        <td style='text-align: right;'><a class='card-link' href=''>escutar</a></td>
-                        <td style='text-align: right;'><a class='card-link' href=''>Excluir</a></td>
+                        <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?id={$playlist['id_playlist']}'>escutar</a></td>
+                        <td class='text-center'>{$playlist['nome_playlist']}</td>
+                        <td class='text-right'><a class='card-link btn btn-danger' href='../functionsPHP/processamentos/excluirPlaylist.php?id={$playlist['id_playlist']}'>Excluir</a></td>
                     </tr>
                 ";
                 }
@@ -44,14 +44,14 @@
         </tbody>
     </table>
 
+    <br><br>
     <h3 class="border-top">Todas as playlists...</h3>
 
     <table class="table table-hover">
         <thead class="thead-dark">
-            <tr>
-            <th scope="col">NOME</th>
-            <th scope="col" style='text-align: right;'>MUSICAS</th>            
-            <th scope="col" style='text-align: right;'>AÇÕES</th>            
+            <tr">
+            <th style="width: 2em;" scope="col" class="text-left">MUSICAS</th>
+            <th scope="col" class="text-center">NOME</th>            
             </tr>
         </thead>
         <tbody>
@@ -70,9 +70,9 @@
                 foreach($td_playlists as $playlist){
                     echo "
                     <tr>
-                        <td scope='row'>{$playlist['nome_playlist']}</td>
-                        <td style='text-align: right;'><a class='card-link' href=''>escutar</a></td>
-                        <td style='text-align: right;'><a class='card-link' href=''>Excluir</a></td>
+                        
+                        <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?id={$playlist['id_playlist']}'>escutar</a></td>
+                        <td class='text-center'>{$playlist['nome_playlist']}</td>
                     </tr>
                 ";
                 }

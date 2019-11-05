@@ -54,8 +54,11 @@
                     </p>
                 </div>
                 <div class="row ">
-                    <a href="../telas/user.php" class="btn btn-outline-info my-2 my-sm-0">Minha conta</a>&nbsp;
-                    <a href="../index.php?acao=deslogar" class="btn btn-outline-danger my-2 my-sm-0">Fazer logoff</a>
+                    <div class="text-right">
+                        <a href="../telas/user.php" class="btn btn-outline-info my-2 my-sm-0">Minha conta</a>&nbsp;
+                        <a href="../index.php?acao=deslogar" class="btn btn-outline-danger my-2 my-sm-0">Fazer logoff</a>
+                    </div>
+                    
                 </div>
             </div>
         </div>

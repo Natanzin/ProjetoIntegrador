@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="genero_msc">Gênero</label>
-            <select name="gnr_msc" id="genero_msc">
+            <select class="form-control" name="gnr_msc" id="genero_msc">
                 <option value="">Selecione</option>
                 
                 <?php 
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="artista_msc">Artista</label>
-            <select name="art_msc" id="artista_msc">
+            <select class="form-control" name="art_msc" id="artista_msc">
                 <option value="">Selecione</option>
 
                 <?php 
@@ -52,24 +52,36 @@
         </div>
         <div class="form-group">
             <label for="album_msc">Álbum</label>
-            <select name="alb_msc" id="album_msc">
+            <select class="form-control" name="alb_msc" id="album_msc">
                 <option value="">Selecione</option>
-
-                <?php 
-                    $sqlAlbum = "select * from album order by nome asc";
-
-                    $albuns = $conexao->query($sqlAlbum);
-                    $albuns = $albuns->fetchAll(PDO::FETCH_ASSOC);
-
-                    foreach($albuns as $album){
-                        echo "<option required value='{$album['id_album']}'>{$album['nome']}</option>";
-                    }
-                ?>
-
+                <!--Insere o json-->
             </select>
         </div>
         <input class="btn btn-success" type="submit" value="Cadastrar">
         
     </form>
+
+    <script>
+    $(function(){
+        $('#artista_msc').change(function(){
+            $.ajax({
+                url: 'processamentos/procuraAlbum.php?id=' + $('#artista_msc').val(),
+                dataType: 'json',
+                success: function(dados){
+                    
+                        $('#album_msc').html('<option value="">Selecione</option>');
+
+                        dados.forEach(function(obj){
+                            $('#album_msc').append(
+                                '<option value="' + obj.id_album + '">' + obj.nome + '</option>'
+                            );
+                        });
+                    
+                }
+            });
+        });
+    });
+        
+    </script>
 
 <?php include_once "../template/rodape.php"; ?>

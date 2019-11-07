@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             <label for="artista_msc">Artista</label>
-            <select name="artista" id="artista_msc">
+            <select class="form-control" name="artista" id="artista_msc">
                 <option value="">Artista</option>
                 <?php 
                 include_once "../DataBase/conexao.php";

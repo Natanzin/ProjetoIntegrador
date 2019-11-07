@@ -31,7 +31,7 @@
                 foreach($playlists as $playlist){
                     echo "
                     <tr>
-                        <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?id={$playlist['id_playlist']}'>escutar</a></td>
+                        <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?idPlay={$playlist['id_playlist']}&&idUser={$playlist['id_usuario']}'>escutar</a></td>
                         <td class='text-center'>{$playlist['nome_playlist']}</td>
                         <td class='text-right'><a class='card-link btn btn-danger' href='../functionsPHP/processamentos/excluirPlaylist.php?id={$playlist['id_playlist']}'>Excluir</a></td>
                     </tr>
@@ -72,7 +72,7 @@
                     echo "
                     <tr>
                         
-                        <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?id={$playlist['id_playlist']}'>escutar</a></td>
+                        <td class='text-left'><a class='card-link btn btn-primary' href='musica_playlist.php?idPlay={$playlist['id_playlist']}&&idUser={$playlist['id_usuario']}'>escutar</a></td>
                         <td class='text-center'>{$playlist['nome_playlist']}</td>
                         <td class='text-right font-weight-bold'>{$playlist['nome_user']}</td>
                     </tr>

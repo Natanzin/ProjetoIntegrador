@@ -9,7 +9,7 @@
 
         include_once "../DataBase/conexao.php";
 
-        $sql = "select * from artista";
+        $sql = "select * from artista order by nome_artista asc";
 
         $artistas = $conexao->query($sql);        
         $artistas = $artistas->fetchAll(PDO::FETCH_ASSOC);

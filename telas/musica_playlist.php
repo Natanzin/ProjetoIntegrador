@@ -5,19 +5,19 @@
             <?php
             include_once "../DataBase/conexao.php";
 
-            $idPlay = $_GET['idPlay'];
-            $idUser = $_GET['idUser'];
+            $_SESSION['idPlay'] = $_GET['idPlay'];
+            $_SESSION['idUser'] = $_GET['idUser'];
                 
                 //Procuas as músicas do usuário no DB
                 $sqlMusica = "select m.nome_musica, m.url_musica, m.id_usuario, mp.id_musica, mp.id_playlist, p.nome_playlist, a.nome_artista from musica m 
                 join musicas_playlist mp on m.id_musica = mp.id_musica
                 join artista a on a.id_artista = m.id_artista
-                join playlist p on mp.id_playlist = p.id_playlist where m.id_usuario = '$idUser' and mp.id_playlist = '$idPlay'";
+                join playlist p on mp.id_playlist = p.id_playlist where mp.id_playlist = '{$_SESSION['idPlay']}'";
 
                 $musicas = $conexao->query($sqlMusica);
                 $musicas = $musicas->fetchAll(PDO::FETCH_ASSOC);
 
-                //echo "<pre>"; print_r($idUser); die;
+                //echo "<pre>"; print_r($musicas); die;
             ?>
 
             <h3 class="border-bottom">
@@ -55,8 +55,8 @@
                                     <p class='card-text text-center'>{$musica['nome_musica']}</p>
                                     <p class='card-text text-center'>{$musica['nome_artista']}</p> ";
                                     
-                                    if($idUser == $_SESSION['id_user']){
-                                       echo "<a href='../functionsPHP/processamentos/excluirMusicaPlaylist.php?idMsc={$musica['id_musica']}&&idPlay={$musica['id_playlist']}' class='card-link text-danger font-weight-bold'>X excluir da playlist</a>";
+                                    if($_SESSION['idUser'] == $_SESSION['id_user']){
+                                       echo "<a href='../functionsPHP/processamentos/excluirMusicaPlaylist.php?idMsc={$musica['id_musica']}&&idPlay={$musica['id_playlist']}&&idUser={$_SESSION['idUser']}' class='card-link text-danger font-weight-bold'>X excluir da playlist</a>";
                                     }
                     
 
@@ -69,6 +69,7 @@
             ?>
         
         </div>
+
 <?php 
 
     

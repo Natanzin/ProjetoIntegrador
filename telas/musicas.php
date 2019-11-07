@@ -53,6 +53,8 @@
                 $td_musicas = $conexao->query($sqlTdMusica);
                 $td_musicas = $td_musicas->fetchAll(PDO::FETCH_ASSOC);
 
+                //echo "<pre>"; print_r($td_musicas); die;
+
                 foreach($td_musicas as $tds_musica){
 
                     echo "

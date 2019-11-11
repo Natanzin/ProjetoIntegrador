@@ -1,7 +1,8 @@
 <?php include_once "../template/cabecalho.php"; ?>
 
     <h2>Músicas</h2>
-    <a href="../functionsPHP/new_msc.php" class="btn btn-outline-success">Nova música</a>
+    <a href="../functionsPHP/new_msc.php" class="btn btn-outline-success">Nova música</a> &nbsp;
+    <a href="../functionsPHP/ger_msc.php" class="btn btn-outline-primary">Gerenciar músicas</a>
     <br><br>
     <h3 class="border-bottom">Suas músicas...</h3>
         <div class="row" align="center">

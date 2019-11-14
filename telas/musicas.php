@@ -1,8 +1,8 @@
 <?php include_once "../template/cabecalho.php"; ?>
 
     <h2>Músicas</h2>
-    <a href="../functionsPHP/new_msc.php" class="btn btn-outline-success">Nova música</a> &nbsp;
-    <a href="../functionsPHP/ger_msc.php" class="btn btn-outline-primary">Gerenciar músicas</a>
+    <a href="../functionsPHP/new_msc.php" class="btn btn-success">Nova música</a> &nbsp;
+    <a href="../functionsPHP/ger_msc.php" class="btn btn-primary">Gerenciar músicas</a>
     <br><br>
     <h3 class="border-bottom">Suas músicas...</h3>
         <div class="row" align="center">
@@ -21,7 +21,7 @@
 
                         echo "
                             <div class='col'>
-                                <div class='card border-primary' style='width:15rem; background: rgba(50, 153, 204, 0.3);'>
+                                <div class='card border-primary' style='margin-bottom: 15px; width:15rem; background: rgba(50, 153, 204, 0.3);'>
                                     <iframe class='card-img-top' src='https://www.youtube.com/embed{$musica['url_musica']}' frameborder='0' 
                                     allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
                                     <div class='card-body'>
@@ -60,7 +60,7 @@
 
                     echo "
                         <div class='col'>
-                            <div class='card border-primary' style='width:15rem; background: rgba(50, 153, 204, 0.3);'>
+                            <div class='card border-primary' style='margin-bottom: 15px; width:15rem; background: rgba(50, 153, 204, 0.3);'>
                                 <iframe class='card-img-top' src='https://www.youtube.com/embed{$tds_musica['url_musica']}' frameborder='0' 
                                 allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
                                 <div class='card-body'>

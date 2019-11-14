@@ -1,4 +1,14 @@
-<?php include_once "../template/cabecalho.php"; ?>
+<?php
+include_once "../template/cabecalho.php"; 
+
+if(!empty($_SESSION['mensagem']))
+    echo "
+    <script>
+        alert('{$_SESSION['mensagem']}');
+    </script>
+    ";
+    unset($_SESSION['mensagem']);
+?>
 
 <a href="../telas/musicas.php" class="btn btn-primary">Voltar</a><br><br>
     <h2 class="border-bottom">Gerenciar músicas</h2>
@@ -39,8 +49,8 @@
                                 <td>{$musica['nome_musica']}</td>
                                 <td>{$musica['nome_artista']}</td>
                                 <td class='text-right'>
-                                    <a href='processamentos/excluirMusica.php&id={$musica['id_musica']}' class='btn btn-warning btn-sm'>Editar</a>
-                                    <a href='processamentos/editarMusica.php&id={$musica['id_musica']}' class='btn btn-danger btn-sm'>Excluir</a>
+                                    <a href='../telas/editarMusica.php?id={$musica['id_musica']}' class='btn btn-warning btn-sm'>Editar</a>
+                                    <a id='delete' onclick='excluir({$musica['id_musica']})' href='#' class='btn btn-danger btn-sm'>Excluir</a>
                                 </td>
                             </tr>                     
                             ";
@@ -50,5 +60,14 @@
                 ?>
         </tbody>
     </table>
+
+    <script>
+        function excluir(id){
+            if(confirm('Tem certeza que deseja excluir')){
+                window.location.href = 'processamentos/excluirMusica.php?id=' + id
+            }
+        }
+    </script>
+
 
 <?php include_once "../template/rodape.php"; ?>
